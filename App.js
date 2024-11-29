@@ -1,9 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './assets/styles';
-import {View, Text, Image, ScrollView, StatusBar} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  ScrollView,
+  StatusBar,
+  TouchableOpacity,
+  Alert,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import CustomWebView from './components/CustomWebView';
 
 const App = () => {
+  const [showWebView, setShowWebView] = useState(false);
+
   return (
     <>
       <StatusBar hidden={true} />
@@ -61,6 +72,22 @@ const App = () => {
           </View>
         </View>
       </ScrollView>
+      {showWebView ? (
+        <>
+          <View style={styles.wViewHolder}>
+            <CustomWebView uri="https://www.oliveqsol.com" />
+            <TouchableOpacity
+              style={styles.closeButton}
+              onPress={() => {
+                setShowWebView(false);
+              }}>
+              <Text style={styles.closeButtonText}>X</Text>
+            </TouchableOpacity>
+          </View>
+        </>
+      ) : (
+        <></>
+      )}
     </>
   );
 };
