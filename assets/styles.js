@@ -1,10 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-  scrollView: {
-    width: '100%',
-    height: '100%',
-  },
+  scrollView: {},
   logopng: {
     marginLeft: 50,
     marginTop: 50,
@@ -69,7 +66,7 @@ export default StyleSheet.create({
     width: 550,
     marginLeft: 50,
     marginTop: 50,
-    paddingLeft: 10,
+    padding: 10,
     // backgroundColor: '#ff0000',
   },
   textSampleHead: {
@@ -77,11 +74,40 @@ export default StyleSheet.create({
     fontFamily: 'Jost-Light',
     color: '#566c30',
   },
-  viewSampleHold: {
-    width: 550,
-    marginLeft: 50,
-    marginTop: 50,
-    paddingLeft: 10,
-    backgroundColor: '#ff0000',
+  viewSampleBoxes: {
+    width: '100%',
+    marginTop: 10,
+    paddingHorizontal: 25,
+    paddingVertical: 25,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'left',
+    backgroundColor: '#fcfcfd',
+  },
+  viewSampleBox: {
+    margin: 25,
+    width: 230,
+    height: 300,
+    flexDirection: 'column',
+    alignItems: 'center',
+    backgroundColor: '#e9e9e9',
+  },
+  imgSampleBox: {
+    width: 200,
+    height: 200,
+    marginVertical: 15,
+  },
+  txtViewWrap: {
+    width: 200,
+    height: 55,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#ffffff',
+  },
+  txtViewBox: {
+    fontSize: 20,
+    fontFamily: 'Jost-SemiBold',
+    color: '#566c30',
   },
 });

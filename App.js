@@ -7,7 +7,7 @@ const App = () => {
   return (
     <>
       <StatusBar hidden={true} />
-      <ScrollView contentContainerStyle={styles.scrollView}>
+      <ScrollView horizontal={false} contentContainerStyle={styles.scrollView}>
         <Image
           source={require('./assets/img/logo.png')} // Replace with your local image path
           style={styles.logopng}
@@ -38,6 +38,27 @@ const App = () => {
 
         <View style={styles.viewSampleHead}>
           <Text style={styles.textSampleHead}>K-12</Text>
+        </View>
+
+        <View style={styles.viewSampleBoxes}>
+          <View style={styles.viewSampleBox}>
+            <Image
+              source={require('./assets/img/game_1.png')} // Replace with your local image path
+              style={styles.imgSampleBox}
+            />
+            <View style={styles.txtViewWrap}>
+              <Text style={styles.txtViewBox}>Learning Platforms</Text>
+            </View>
+          </View>
+          <View style={styles.viewSampleBox}>
+            <Image
+              source={require('./assets/img/game_1.png')} // Replace with your local image path
+              style={styles.imgSampleBox}
+            />
+            <View style={styles.txtViewWrap}>
+              <Text style={styles.txtViewBox}>Learning Platforms</Text>
+            </View>
+          </View>
         </View>
       </ScrollView>
     </>
