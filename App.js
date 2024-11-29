@@ -35,6 +35,10 @@ const App = () => {
             style={styles.topgradient}
           />
         </View>
+
+        <View style={styles.viewSampleHead}>
+          <Text style={styles.textSampleHead}>K-12</Text>
+        </View>
       </ScrollView>
     </>
   );

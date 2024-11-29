@@ -65,4 +65,23 @@ export default StyleSheet.create({
   topgradient: {
     ...StyleSheet.absoluteFillObject,
   },
+  viewSampleHead: {
+    width: 550,
+    marginLeft: 50,
+    marginTop: 50,
+    paddingLeft: 10,
+    // backgroundColor: '#ff0000',
+  },
+  textSampleHead: {
+    fontSize: 24,
+    fontFamily: 'Jost-Light',
+    color: '#566c30',
+  },
+  viewSampleHold: {
+    width: 550,
+    marginLeft: 50,
+    marginTop: 50,
+    paddingLeft: 10,
+    backgroundColor: '#ff0000',
+  },
 });
