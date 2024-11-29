@@ -13,7 +13,6 @@ export default StyleSheet.create({
     width: '100%',
     height: 550,
     overflow: 'hidden',
-    marginTop: 50,
     // flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -54,5 +53,16 @@ export default StyleSheet.create({
     width: 550,
     color: '#000000',
     // backgroundColor: '#ff0000',
+  },
+  gradcontainer: {
+    position: 'absolute',
+    left: 0,
+    top: 140,
+    width: '100%',
+    height: 50,
+    backgroundColor: '#ffff00',
+  },
+  topgradient: {
+    ...StyleSheet.absoluteFillObject,
   },
 });

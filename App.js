@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './assets/styles';
 import {View, Text, Image, ScrollView, StatusBar} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 const App = () => {
   return (
@@ -26,6 +27,12 @@ const App = () => {
           <Image
             source={require('./assets/img/header_img.png')} // Replace with your local image path
             style={styles.headerpng}
+          />
+        </View>
+        <View style={styles.gradcontainer}>
+          <LinearGradient
+            colors={['rgba(241, 241, 242, 1)', 'rgba(252, 252, 253, 1)']}
+            style={styles.topgradient}
           />
         </View>
       </ScrollView>
