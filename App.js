@@ -9,11 +9,29 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
+import RNFS from 'react-native-fs';
 import LinearGradient from 'react-native-linear-gradient';
 import CustomWebView from './components/CustomWebView';
 
 const App = () => {
-  const [showWebView, setShowWebView] = useState(false);
+  const [currentValue, setCurrentValue] = useState('');
+  // const sample1Path = `${RNFS.DocumentDirectoryPath}/assets/samples/ece_1/index.html`;
+
+  const setFileURI = uripath => {
+    // Dynamically construct the correct path for the platform
+    const pathURI =
+      uripath !== ''
+        ? Platform.OS === 'android'
+          ? `file:///android_asset/samples/${uripath}`
+          : `${RNFS.MainBundlePath}/samples/${uripath}`
+        : uripath;
+    // console.log('setCurrentValue', pathURI);
+    setCurrentValue(pathURI);
+
+    // const fileUri = `${RNFS.MainBundlePath}/samples/ece_1/index.html`;
+    // console.log('fileUri', fileUri);
+
+  };
 
   return (
     <>
@@ -60,6 +78,11 @@ const App = () => {
             <View style={styles.txtViewWrap}>
               <Text style={styles.txtViewBox}>Learning Platforms</Text>
             </View>
+            <TouchableOpacity
+              style={styles.touchBox}
+              onPress={() => {
+                setFileURI('ece_1/index.html');
+              }}></TouchableOpacity>
           </View>
           <View style={styles.viewSampleBox}>
             <Image
@@ -69,17 +92,22 @@ const App = () => {
             <View style={styles.txtViewWrap}>
               <Text style={styles.txtViewBox}>Learning Platforms</Text>
             </View>
+            <TouchableOpacity
+              style={styles.touchBox}
+              onPress={() => {
+                setFileURI('ece_1/index.html');
+              }}></TouchableOpacity>
           </View>
         </View>
       </ScrollView>
-      {showWebView ? (
+      {currentValue !== '' ? (
         <>
           <View style={styles.wViewHolder}>
-            <CustomWebView uri="https://www.oliveqsol.com" />
+            <CustomWebView uri={currentValue} />
             <TouchableOpacity
               style={styles.closeButton}
               onPress={() => {
-                setShowWebView(false);
+                setFileURI('');
               }}>
               <Text style={styles.closeButtonText}>X</Text>
             </TouchableOpacity>

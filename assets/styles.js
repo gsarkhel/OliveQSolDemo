@@ -110,6 +110,13 @@ export default StyleSheet.create({
     fontFamily: 'Jost-SemiBold',
     color: '#566c30',
   },
+  touchBox: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    width: '100%',
+    height: '100%',
+  },
   wViewHolder: {
     position: 'absolute',
     left: 0,
@@ -118,7 +125,7 @@ export default StyleSheet.create({
     height: '100%',
     backgroundColor: '#ffff00',
   },
-  wcViewHolder :{
+  wcViewHolder: {
     position: 'absolute',
     left: 0,
     top: 0,

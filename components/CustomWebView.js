@@ -13,8 +13,12 @@ const CustomWebView = ({uri}) => {
       <WebView
         source={{uri}}
         style={styles.webview}
+        originWhitelist={['*']}
+        javaScriptEnabled={true}
+        domStorageEnabled={true}
         onLoad={() => setLoading(false)} // Hide loader when page loads
         onLoadStart={() => setLoading(true)} // Show loader on navigation
+        onError={(error) => console.error('WebView Error:', error.nativeEvent)}
         onNavigationStateChange={navState => {
           console.log('Navigating to:', navState.url);
         }}
