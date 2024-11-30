@@ -19,14 +19,14 @@ const App = () => {
 
   const setFileURI = uripath => {
     // Dynamically construct the correct path for the platform
-    const pathURI =
-      uripath !== ''
-        ? Platform.OS === 'android'
-          ? `file:///android_asset/samples/${uripath}`
-          : `${RNFS.MainBundlePath}/samples/${uripath}`
-        : uripath;
-    // console.log('setCurrentValue', pathURI);
-    setCurrentValue(pathURI);
+    // const pathURI =
+    //   uripath !== ''
+    //     ? Platform.OS === 'android'
+    //       ? `file:///android_asset/samples/${uripath}`
+    //       : `${RNFS.MainBundlePath}/samples/${uripath}`
+    //     : uripath;
+    // // console.log('setCurrentValue', pathURI);
+    // setCurrentValue(pathURI);
 
     // const fileUri = `${RNFS.MainBundlePath}/samples/ece_1/index.html`;
     // console.log('fileUri', fileUri);
