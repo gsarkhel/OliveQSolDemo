@@ -1,30 +1,52 @@
 import React, {useState} from 'react';
 import {StyleSheet, View, ActivityIndicator} from 'react-native';
 import {WebView} from 'react-native-webview';
+import RNFS from 'react-native-fs';
+import RNFetchBlob from 'rn-fetch-blob';
 
 const CustomWebView = ({uri}) => {
   const [loading, setLoading] = useState(true);
 
-  return (
-    <View style={styles.container}>
-      {loading && (
-        <ActivityIndicator style={styles.loader} size="large" color="#0000ff" />
-      )}
-      <WebView
-        source={{uri}}
-        style={styles.webview}
-        originWhitelist={['*']}
-        javaScriptEnabled={true}
-        domStorageEnabled={true}
-        onLoad={() => setLoading(false)} // Hide loader when page loads
-        onLoadStart={() => setLoading(true)} // Show loader on navigation
-        onError={(error) => console.error('WebView Error:', error.nativeEvent)}
-        onNavigationStateChange={navState => {
-          console.log('Navigating to:', navState.url);
-        }}
-      />
-    </View>
-  );
+  // const pathURI =
+  //   Platform.OS === 'android'
+  //     ? 'file:///android_asset/samples'
+  //     : `${RNFS.MainBundlePath}/samples`;
+
+  const pathURI =
+    Platform.OS === 'android'
+      ? 'file:///android_asset/samples/ece_1/index.html'
+      : `${RNFetchBlob.fs.dirs.MainBundleDir}/samples/ece_1/index.html`;
+
+  console.log('pathURI', pathURI);
+    return (
+      <View style={styles.container}>
+        {loading && (
+          <ActivityIndicator
+            style={styles.loader}
+            size="large"
+            color="#0000ff"
+          />
+        )}
+        <WebView
+          source={{uri: pathURI}}
+          style={styles.webview}
+          originWhitelist={['*']}
+          javaScriptEnabled={true}
+          // domStorageEnabled={true}
+          // setWebContentsDebuggingEnabled={true}
+          allowFileAccess={true} // Ensure file access is enabled
+          allowUniversalAccessFromFileURLs={true} // Allow accessing other files from local
+          onError={syntheticEvent => {
+            const {nativeEvent} = syntheticEvent;
+            console.log('WebView error:', nativeEvent);
+          }}
+          onHttpError={syntheticEvent => {
+            const {nativeEvent} = syntheticEvent;
+            console.log('HTTP error:', nativeEvent);
+          }}
+        />
+      </View>
+    );
 };
 
 const styles = StyleSheet.create({
