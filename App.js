@@ -15,18 +15,15 @@ import CustomWebView from './components/CustomWebView';
 
 const App = () => {
   const [currentValue, setCurrentValue] = useState('');
-  // const sample1Path = `${RNFS.DocumentDirectoryPath}/assets/samples/ece_1/index.html`;
 
-  // const pathURI =
-  //   Platform.OS === 'android'
-  //     ? 'file:///android_asset/samples/ece_1/index.html'
-  //     : `${RNFS.MainBundlePath}/samples/ece_1/index.html`;
+  const pathURI =
+    Platform.OS === 'android'
+      ? 'file:///android_asset/samples'
+      : `${RNFS.MainBundlePath}/samples`;
 
   const setFileURI = uripath => {
-    // console.log('uripath', uripath);
-    
-    const pathURI = 'launch.html';
-    uripath !== '' ? setCurrentValue(pathURI) : setCurrentValue('');
+    // uripath !== '' ? setCurrentValue(`${pathURI}/${uripath}`) : setCurrentValue('');
+    uripath !== '' ? setCurrentValue(`${pathURI}/launch.html`) : setCurrentValue('');
   };
 
   return (
