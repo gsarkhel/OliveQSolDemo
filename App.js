@@ -7,13 +7,15 @@ import {
   ScrollView,
   StatusBar,
   TouchableOpacity,
-  Alert,
+  Platform,
 } from 'react-native';
 import RNFS from 'react-native-fs';
 import LinearGradient from 'react-native-linear-gradient';
 import CustomWebView from './components/CustomWebView';
 
 const App = () => {
+  console.log('APPPPPP');
+  
   const [currentValue, setCurrentValue] = useState('');
 
   const pathURI =
@@ -23,7 +25,9 @@ const App = () => {
 
   const setFileURI = uripath => {
     // uripath !== '' ? setCurrentValue(`${pathURI}/${uripath}`) : setCurrentValue('');
-    uripath !== '' ? setCurrentValue(`${pathURI}/launch.html`) : setCurrentValue('');
+    uripath !== ''
+      ? setCurrentValue(`${pathURI}/launch.html`)
+      : setCurrentValue('');
   };
 
   return (

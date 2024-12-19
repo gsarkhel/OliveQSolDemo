@@ -1,5 +1,5 @@
 window.addEventListener('load', evt => {
-  document.getElementsByClassName('loaderwrap')[0].innerHTML = 'Loaded';
+  // document.getElementsByClassName('loaderwrap')[0].innerHTML = `loaded ${navigator.userAgent}`;
   console.log('FROM INNER HTML');
   // document.getElementsByClassName('loaderwrap')[0].style.display = 'none';
   // document.getElementById('ifr').src = 'ece_1/index.html';
