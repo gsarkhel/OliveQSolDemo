@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styles from './assets/styles';
 import {
   View,
@@ -11,11 +11,10 @@ import {
 } from 'react-native';
 import RNFS from 'react-native-fs';
 import LinearGradient from 'react-native-linear-gradient';
+import StaticServer from 'react-native-static-server';
 import CustomWebView from './components/CustomWebView';
 
 const App = () => {
-  console.log('APPPPPP');
-  
   const [currentValue, setCurrentValue] = useState('');
 
   const pathURI =
@@ -23,12 +22,27 @@ const App = () => {
       ? 'file:///android_asset/samples'
       : `${RNFS.MainBundlePath}/samples`;
 
+  console.log('pathURI', pathURI);
+
   const setFileURI = uripath => {
+    console.log('setFileURI', uripath);
+
     // uripath !== '' ? setCurrentValue(`${pathURI}/${uripath}`) : setCurrentValue('');
     uripath !== ''
       ? setCurrentValue(`${pathURI}/launch.html`)
       : setCurrentValue('');
   };
+
+  useEffect(() => {
+    console.log('Use Effect');
+    const server = new StaticServer(8080, pathURI, {
+      localOnly: true,
+    });
+
+    server.start().then(url => {
+      console.log(`Server started at ${url}`);
+    });
+  }, []);
 
   return (
     <>
