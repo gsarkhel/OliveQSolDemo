@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import {StyleSheet, View, ActivityIndicator} from 'react-native';
 import {WebView} from 'react-native-webview';
-import RNFS from 'react-native-fs';
 
 const CustomWebView = ({uri}) => {
   const [loading, setLoading] = useState(true);
+  console.log('CustomWebView', uri);
+  
 
   return (
     <View style={styles.container}>
@@ -16,6 +17,7 @@ const CustomWebView = ({uri}) => {
         style={styles.webview}
         originWhitelist={['*']}
         javaScriptEnabled={true}
+        isInspectable={true}
         // domStorageEnabled={true}
         // setWebContentsDebuggingEnabled={true}
         allowFileAccess={true} // Ensure file access is enabled
